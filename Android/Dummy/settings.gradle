@@ -1,0 +1,3 @@
+include ':uAndroidBluetooth'
+include ':app'
+rootProject.name = "Dummy"
