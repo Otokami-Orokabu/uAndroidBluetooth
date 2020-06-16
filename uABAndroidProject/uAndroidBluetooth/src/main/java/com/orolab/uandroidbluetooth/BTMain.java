@@ -29,6 +29,7 @@ public class BTMain {
 
     private static BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private static BluetoothDevice bluetoothDevice = null;
+    public static boolean GetBluetooth = bluetoothAdapter == null;
     private static BluetoothSocket bluetoothSocket = null;
     private static InputStream btIn;
     private static OutputStream btOut;
@@ -85,6 +86,15 @@ public class BTMain {
     }
 
     /**
+     * bluetooth 状態取得
+     * @return true 利用可　:　 faluse 利用不可
+     */
+    public boolean isEnable(){
+        if(GetBluetooth == false) return false;
+        return bluetoothAdapter.isEnabled();
+    }
+
+    /**
      * 非同期で接続を閉じる
      */
     public void doClose(){
@@ -104,6 +114,17 @@ public class BTMain {
      * @return
      */
     public byte[] doReceive(){
+        byte[] buf = new byte[1024];
+        int bytes;
+        try{
+            bytes = btIn.read(buf);
+            byte[] result = new byte[bytes];
+            System.arraycopy(buf,0,result,0,bytes);
+            return result;
+        }catch (IOException e){
+            Log.e(TAG,e.toString(),e);
+        }
+
         return new byte[0];
     }
 
