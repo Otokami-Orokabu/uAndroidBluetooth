@@ -1,0 +1,2 @@
+include ':uAndroidBluetooth'
+rootProject.name = "uABAndroidProject"
