@@ -183,7 +183,7 @@ public class BTMain {
         protected void onPostExecute(Object result) {
             if (result instanceof Throwable) {
                 Log.e(TAG,result.toString(),(Throwable)result);
-                BTDialog.showErrorDialog(result.toString());
+                BTDialog.showWarmomgDialog(result.toString());
             } else {
                 //activity.hideWaitDialog();
             }
@@ -213,7 +213,7 @@ public class BTMain {
         protected void onPostExecute(Object result) {
             if (result instanceof Throwable) {
                 Log.e(TAG,result.toString(),(Throwable)result);
-                BTDialog.showErrorDialog(result.toString());
+                BTDialog.showWarmomgDialog(result.toString());
             }
         }
     }
@@ -237,7 +237,7 @@ public class BTMain {
         protected void onPostExecute(Object result) {
             if (result instanceof Exception) {
                 Log.e(TAG,result.toString(),(Throwable)result);
-                BTDialog.showErrorDialog(result.toString());
+                BTDialog.showWarmomgDialog(result.toString());
             }
         }
     }
