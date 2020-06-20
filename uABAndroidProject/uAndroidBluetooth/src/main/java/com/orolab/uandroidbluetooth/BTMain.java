@@ -66,7 +66,7 @@ public class BTMain {
             new ConnectTask().execute();
         } catch (IOException e) {
             Log.e(TAG, e.toString(), e);
-            BTDialog.showWarmomgDialog(e.toString());
+            BTDialog.showWarningDialog(e.toString());
         }
 
     }
@@ -183,7 +183,7 @@ public class BTMain {
         protected void onPostExecute(Object result) {
             if (result instanceof Throwable) {
                 Log.e(TAG,result.toString(),(Throwable)result);
-                BTDialog.showWarmomgDialog(result.toString());
+                BTDialog.showWarningDialog(result.toString());
             } else {
                 //activity.hideWaitDialog();
             }
@@ -213,7 +213,7 @@ public class BTMain {
         protected void onPostExecute(Object result) {
             if (result instanceof Throwable) {
                 Log.e(TAG,result.toString(),(Throwable)result);
-                BTDialog.showWarmomgDialog(result.toString());
+                BTDialog.showWarningDialog(result.toString());
             }
         }
     }
@@ -237,7 +237,7 @@ public class BTMain {
         protected void onPostExecute(Object result) {
             if (result instanceof Exception) {
                 Log.e(TAG,result.toString(),(Throwable)result);
-                BTDialog.showWarmomgDialog(result.toString());
+                BTDialog.showWarningDialog(result.toString());
             }
         }
     }

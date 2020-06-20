@@ -19,7 +19,7 @@ public class BTDialog {
                 })
                 .show();
     }
-    public static void showWarmomgDialog(String message){
+    public static void showWarningDialog(String message){
         new AlertDialog.Builder(UnityPlayer.currentActivity)
                 .setTitle("info")
                 .setMessage(message)
