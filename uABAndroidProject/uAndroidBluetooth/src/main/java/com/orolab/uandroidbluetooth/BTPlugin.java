@@ -6,7 +6,7 @@ public class BTPlugin {
     /**
      * 初期化
      */
-    public static void init(){
+    public static void init() {
         btMain.init();
 
         btMain.DevicesDialog();
@@ -15,8 +15,12 @@ public class BTPlugin {
     /**
      *
      */
-    public static boolean BTEnable = btMain.isEnable();
-
+    public static boolean BTEnable() {
+        return btMain.isEnable();
+    }
+    public static boolean BTConnected(){
+        return btMain.isConnected();
+    }
     /**
      * デバイス名指定接続
      * @param deviceName

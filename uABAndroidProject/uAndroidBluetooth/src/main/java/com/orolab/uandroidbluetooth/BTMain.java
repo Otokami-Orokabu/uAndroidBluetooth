@@ -34,15 +34,20 @@ public class BTMain {
     private static InputStream btIn;
     private static OutputStream btOut;
 
+    public boolean isConnected(){
+        if(bluetoothSocket == null) return false;
+        return bluetoothSocket.isConnected();
+    }
+
     /**
      * 初期化
      */
-    public void init(){
-        if(bluetoothAdapter == null){
+    public void init() {
+        if (bluetoothAdapter == null) {
             BTDialog.showErrorDialog("This device is not implement Bluetooth.");
             return;
         }
-        if(!bluetoothAdapter.isEnabled()){
+        if (!bluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             UnityPlayer.currentActivity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }
@@ -123,6 +128,7 @@ public class BTMain {
             return result;
         }catch (IOException e){
             Log.e(TAG,e.toString(),e);
+            doClose();
         }
 
         return new byte[0];
